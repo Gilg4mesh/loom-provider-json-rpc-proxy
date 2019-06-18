@@ -9,7 +9,11 @@
   "bin": "dist/index.js",
   "main": "dist/index.js",
   "scripts": {
-    "build": "rm -rf dist && mkdir dist && tsc"
+    "build": "rm -rf dist && mkdir dist && tsc",
+    "run:local": "PORT=8545 CHAIN_ENDPOINT=\"ws://localhost:46658\" node .",
+    "run:extdev": "PORT=8545 CHAIN_ID=\"extdev-plasma-us1\" CHAIN_ENDPOINT=\"ws://extdev-plasma-us1.dappchains.com\" node .",
+    "run:pelith": "PORT=8545 CHAIN_ENDPOINT=\"https://loom.pelith.com\" node .",
+    "run:plasma": "PORT=8545 node ."
   },
   "devDependencies": {
     "@types/node": "^10.12.18",
