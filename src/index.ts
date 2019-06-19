@@ -1,4 +1,6 @@
 import http from 'http'
+import fs from 'fs'
+import path from 'path'
 import { CryptoUtils, LoomProvider, Client, ClientEvent } from 'loom-js'
 import { IEthRPCPayload } from 'loom-js/dist/loom-provider'
 
@@ -12,7 +14,16 @@ const chainEndpoint = process.env.CHAIN_ENDPOINT || 'wss://plasma.dappchains.com
 const port = process.env.PORT || 8080
 
 // Initialize Client and LoomProvider
-const privateKey = CryptoUtils.generatePrivateKey()
+let privateKey = null
+
+try {
+  const privateKeyStr = fs.readFileSync(path.join(__dirname, '../private_key'), 'utf-8')
+  privateKey = CryptoUtils.B64ToUint8Array(privateKeyStr)
+} catch (e) {
+  console.log(path.join(__dirname, '../private_key') + ' not exists, use random privatekey.')
+  privateKey = CryptoUtils.generatePrivateKey()
+}
+
 const client = new Client(chainId, `${chainEndpoint}/websocket`, `${chainEndpoint}/queryws`)
 const loomProvider = new LoomProvider(client, privateKey)
 

@@ -15,3 +15,9 @@ loom.umd.js
 /.env.test
 /.env
 /yarn-error.log
+
+loom
+
+private_key
+
+public_key

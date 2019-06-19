@@ -2,6 +2,15 @@
 
 Small service that proxies `JSON RPC` calls to the `Loomchain/EVM`
 
+## Setup specific private key if needed
+
+```bash
+# download executable
+curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master/scripts/get_loom.sh | sh
+# generate private key & public key
+./loom genkey -k private_key -a public_key
+```
+
 ## Running
 
 ```bash
