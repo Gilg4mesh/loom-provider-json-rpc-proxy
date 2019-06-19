@@ -11,17 +11,24 @@ curl https://raw.githubusercontent.com/loomnetwork/loom-sdk-documentation/master
 ./loom genkey -k private_key -a public_key
 ```
 
-## Running
+## Simple Usage
 
 ```bash
 yarn build
 node .
 ```
 
-## Usage
+## Quickstarts
 
 ```bash
-yarn build; node .
+# ws://localhost:46658
+yarn run:local
+# ws://extdev-plasma-us1.dappchains.com
+yarn run:extdev
+# https://loom.pelith.com
+yarn run:pelith
+# wss://plasma.dappchains.com
+yarn run:plasma
 ```
 
 The default configuration for this proxy will connect to `PlasmaChain` on `wss://plasma.dappchains.com` and serve the `HTTP` interface on port `8080`, however those values can be tweaked by using environment variables as the following example:
